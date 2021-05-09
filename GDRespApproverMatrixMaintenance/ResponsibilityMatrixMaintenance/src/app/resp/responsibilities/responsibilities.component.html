@@ -1,0 +1,144 @@
+<br />
+<div class="row">
+  <div class="col-md-8">
+    <h2 style="color:gray;font-size: 20px">
+      Responsibility Approver Matrix Maintenance
+    </h2>
+  </div>
+  <div class="col-md-4 text-right">
+    <br />
+    <a href="editresp/0"><u>Add Responsibility</u></a>
+
+    <a href="contacts" style="margin-left: 20px;"><u>HRIS Contacts</u></a>
+  </div>
+</div>
+
+
+<hr />
+
+<br />
+
+<div>
+
+  <div style="display: inline-block;font-size: 18px">
+
+    Instance:
+    <select style=" width:100px;" class="form-control d-inline-block" [(ngModel)]="resp_query.Instance"
+      (change)="onInstanceChanged()">
+      <option value="BETSY">BETSY</option>
+      <option value="BILLY">BILLY</option>
+      <option value="BRYAN">BRYAN</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;
+    <input type="button" style="vertical-align: top;" value="Import from Excel" class="btn btn-secondary" data-backdrop="static" data-keyboard="false"
+      data-toggle="modal" data-target="#importModal" />
+
+  </div>
+
+
+  <div style="display: inline-block; float:right;" class=" text-right">
+    <select style="width:200px;" class="form-control d-inline-block" [(ngModel)]="resp_filter" id="dl_filter">
+      <option value=""></option>
+      <option value="Responsibility_Name">Responsibility Name</option>
+      <option value="Approver">Approver</option>
+      <option value="Division">Division</option>
+      <option value="DoNotUse">Do Not Use</option>
+      <option value="Default">Default</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;
+    <input style="width: 200px;" type="text" [(ngModel)]="resp_filter_txt" class="form-control d-inline-block"
+      maxlength="100" (keyup)="onEnterKey($event)" id="input_filter_txt"/>
+    &nbsp;&nbsp;&nbsp;
+    <input type="button" style="vertical-align: top;" value="Search" class="btn btn-secondary" (click)="onSearch()" />
+    &nbsp;&nbsp;&nbsp;
+    <input type="button" id="exportBtn" style="vertical-align: top;" value="Export to Excel" class="btn btn-secondary" [class.btn-loading]="exportFlag"
+      (click)="onExportToExcel()" />
+
+  </div>
+
+</div>
+<br />
+<br />
+
+<div class="row" *ngIf="resp_count">
+  <div class="col-md-2">
+    Total: {{resp_count}}
+  </div>
+  <div class="col-md-8 text-center" >
+    <pagination-controls (pageChange)="onPageIndexChange($event)"> </pagination-controls>
+  </div>
+</div>
+<div *ngIf="isLoading else RespGrid" class="text-center">
+  <img src="assets/images/loadingwheel.gif" />
+</div>
+
+<ng-template #RespGrid>
+  <div style="overflow-x: scroll;">
+    <table class="table resp-table" id="tblResp" style="font-size: 13px;line-height: 0.3;">
+      <thead>
+        <tr style="white-space: nowrap;" class="tableHeader">
+          <th class="first-col-head"> Responsibility Name </th>
+          <th class="column-width"> Responsibility Name </th>
+          <th> Ap Group </th>
+          <th> Division </th>
+          <th> Application </th>
+          <th> Primary Approver </th>
+          <th> Prior Primary Approver </th>
+          <th> Last Updated Date </th> 
+          <th> Secondary Approver </th>
+          <th> Prior Secondary Approver </th>
+          <th> Last Updated Date </th>  
+          <th> Final Approver </th>
+          <th> Prior Final Approver </th>
+          <th> Last Updated Date </th> 
+          <th> Comment </th>
+          <th> Sod Active </th>
+          <th> Last Updated By </th>
+          <th> Last Updated Date </th>
+          <th> Available in Production Y/N? </th>
+          <th> Active Y/N? </th>
+          <th> Start Date </th>
+          <th> End Date </th>
+          <th> Approvers Not Listed </th>
+          <th> Default </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let resp of resp_list | paginate: { totalItems:resp_count, itemsPerPage: resp_query.Page_Size, currentPage: resp_query.Page_Index }"
+            style="white-space: nowrap;">
+          <td class="first-col-row" title="{{resp.Responsibility_Name}}"><a href='editresp/{{resp.ID}}'> {{resp.Responsibility_Name}}</a></td>
+          <td class="column-width">{{resp.Responsibility_Name}}</td>
+          <td> {{resp.Ap_Group}}</td>
+          <td>{{resp.Division}}</td>
+          <td>{{resp.Application}}</td>
+          <td>{{resp.Primary_Approver}}</td>
+          <td>{{resp.PriorPrimaryApprover}}</td>
+          <td>{{(resp.PriorPrimaryApproverUpdatedDate |date:'dd/MM/yyyy') != '01/01/0001' ? (resp.PriorPrimaryApproverUpdatedDate |date) : ""}}</td>
+          <td>{{resp.Secondary_Approver}}</td>
+          <td>{{resp.PriorSecondaryApprover}}</td>
+          <td>{{(resp.PriorSecondaryApproverUpdatedDate |date:'dd/MM/yyyy') != '01/01/0001' ? (resp.PriorSecondaryApproverUpdatedDate |date) : ""}}</td>
+          <td>{{resp.Final_Approver}}</td>
+          <td>{{resp.PriorFinalApprover}}</td>
+          <td>{{(resp.PriorFinalApproverUpdatedDate |date:'dd/MM/yyyy') != '01/01/0001' ? (resp.PriorFinalApproverUpdatedDate |date) : ""}}</td>
+          <td>{{resp.Comment}}</td>
+          <td>{{resp.Sod_Active}}</td>
+          <td>{{resp.Last_Updated_By}}</td>
+          <td>{{resp.Last_Updated_Date |date}}</td>
+          <td>{{resp.Available_in_Production}}</td>
+          <td>{{resp.Active}}</td>
+          <td>{{resp.Start_Date | date}}</td>
+          <td>{{resp.End_Date | date}}</td>
+          <td>{{resp.Approvers_Not_Listed}}</td>
+          <td>{{resp.Default}}</td>
+        </tr>
+
+        <tr *ngIf="resp_list && resp_list.length==0" style="white-space: nowrap;">
+          <td colspan="16">
+            No Data Found
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+<app-uploads uploadType="Responsibility"></app-uploads>

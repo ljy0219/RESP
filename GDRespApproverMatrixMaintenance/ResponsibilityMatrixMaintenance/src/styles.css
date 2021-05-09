@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+
+@media (min-width:1200px)
+{
+   .container{
+    width:1100px !important;
+   } 
+}
+
+.modal-header{
+    background-color: midnightblue;
+    color: white;
+}
+
+.modal-header .close,
+.modal-header .close :hover{
+    color:white !important;
+}
+
+
+.resp-table  tr  th{
+    background-color: mediumaquamarine;
+}
+
+.error-box ul li{
+    list-style: none;
+}
+
+.btn-loading
+{
+    background-image: url('assets/images/loadingwheel.gif');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: center;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,16 @@
+.div_fontsize{
+
+    font-size: 13px;
+}
+
+.div_wordbreak{
+
+    word-break: break-all;
+}
+
+.div_footer{
+
+    font-size:90%;
+    font-style: italic;
+    color: gray;
+}

@@ -1,0 +1,231 @@
+<br />
+
+<div class="row">
+    <div class="col-md-8">
+        <h2 style="color:gray;">
+            <span *ngIf="contact.RespID">Edit </span>
+            <span *ngIf="!contact.RespID">Add </span>
+            HRIS Contact
+          </h2>
+              </div>
+    <div class="col-md-4 text-right">
+      <br /> 
+      <a href="contacts" ><u>HRIS Contacts</u></a>
+    </div>
+  </div>
+
+<hr />
+
+<br />
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <span class="text-danger">* </span>
+    RespID
+  </div>
+
+  <div class="col-md-5" *ngIf="id else EditID">
+      <span>{{contact.RespID}}</span>
+  </div>
+  <ng-template #EditID>
+    <div class="col-md-5" >
+        <input type="text" class="form-control" [(ngModel)]="contact.RespID"  />
+    </div>
+    </ng-template>
+</div>
+
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <span class="text-danger">* </span>
+    Responsibility Name
+  </div>
+
+  <div class="col-md-5" *ngIf="!id">
+    <input type="text" class="form-control" maxlength="200" [(ngModel)]="contact.Responsibility_Name" />
+  </div>
+  <div class="col-md-5" *ngIf="id">
+    {{contact.Responsibility_Name}}
+  </div> 
+</div>
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <!-- <span class="text-danger">* </span> -->
+    Name/Type
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.NameOrType" />
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <!-- <span class="text-danger">* </span> -->
+    OU Org ID
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.OU_Org_ID" />
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <!-- <span class="text-danger">* </span> -->
+    Org_Name
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.Org_Name" />
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <!-- <span class="text-danger">* </span> -->
+    BG ID
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.BG_ID" />
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <!-- <span class="text-danger">* </span> -->
+    Business Group
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.Business_Group" />
+
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    Description
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.Description" />
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    Diff
+  </div>
+
+  <div class="col-md-5">
+    <select class="form-control" [(ngModel)]="contact.Diff">
+      <option value="0">0</option>
+      <option value="1">1</option>
+    </select>
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+      <span class="text-danger">* </span>
+      Contact1
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.Contact1" />
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+      Contact2
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.Contact2" />
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+      Interface User Name
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.Interface_User_Name" />
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+      File_Name
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.File_Name" />
+  </div>
+</div>
+<div class="row form-group">
+    <div class="col-md-4 text-right">
+      Comment
+    </div>
+  
+    <div class="col-md-5">
+      <textarea class="form-control" style="height: 200px;" maxlength="500" [(ngModel)]="contact.Comment"> </textarea>
+    </div>
+  </div>
+
+  <div class="row form-group">
+      <div class="col-md-4 text-right">
+          Notes
+      </div>
+    
+      <div class="col-md-5">
+        <textarea class="form-control" style="height: 200px;" maxlength="500" [(ngModel)]="contact.Notes"> </textarea>
+      </div>
+    </div>
+    
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+      Attr2
+  </div>
+
+  <div class="col-md-5">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="contact.Attr2" />
+  </div>
+</div>
+
+
+
+
+
+<div class="row form-group" *ngIf="errorMsg">
+  <div class="col-md-4 text-right">
+  </div>
+  <div class="col-md-8 text-danger error-box">
+    <b> Below error(s) must be solved before continue: </b>
+    <div [innerHtml]="errorMsg"></div>
+  </div>
+</div>
+
+<div class="row form-group" *ngIf="successMsg">
+  <div class="col-md-4 text-right">
+  </div>
+  <div class="col-md-8 text-success" style="font-weight: bold;" [innerHtml]="successMsg">
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+  </div>
+
+  <div class="col-md-5 text-center">
+    <input type="button" style="margin: 0px 50px 0px 0px;" value="Submit" class="btn btn-secondary"
+      (click)="updateSingleHRISContact()">
+
+    <!-- <input type="button" style="margin: 0px 20px 0px 0px;" value="Close" class="btn btn-secondary"> -->
+
+    <input *ngIf="contact.RespID" type="button" style="margin: 0px 20px 0px 0px;" value="Delete" class="btn btn-secondary"
+      data-toggle="modal" data-target="#confirmationModal">
+
+  </div>
+</div>
+
+
+<app-confirmation (confirm)="onDelConfirm($event)"></app-confirmation>

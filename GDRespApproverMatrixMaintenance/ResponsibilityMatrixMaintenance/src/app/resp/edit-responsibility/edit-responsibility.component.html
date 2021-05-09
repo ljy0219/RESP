@@ -1,0 +1,298 @@
+<br />
+
+<div class="row">
+  <div class="col-md-8">
+    <h2 style="color:gray;font-size: 20px">
+      <span *ngIf="resp.ID">Edit </span>
+      <span *ngIf="!resp.ID">Add </span>
+      Responsibility Approver Matrix
+    </h2>
+  </div>
+  <div class="col-md-4 text-right">
+    <br />
+    <a href="responsibilities"><u>Responsibilities</u></a>
+  </div>
+</div>
+
+<hr />
+
+<br />
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <span class="text-danger">* </span>
+    Instance
+  </div>
+
+  <div class="col-md-4" *ngIf="!resp.ID">
+    <select class="form-control" [(ngModel)]="resp.Instance">
+    <option value="BETSY">BETSY</option>
+    <option value="BILLY">BILLY</option>
+    <option value="BRYAN">BRYAN</option>
+  </select>
+  </div>
+  <div class="col-md-4" *ngIf="resp.ID">
+    {{resp.Instance}}
+  </div>
+</div>
+
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <span class="text-danger">* </span>
+    Responsibility Name
+  </div>
+
+  <div class="col-md-4" *ngIf="!resp.ID">
+    <input type="text" class="form-control" maxlength="200" [(ngModel)]="resp.Responsibility_Name" value="{{resp.Responsibility_Name}}" />
+  </div>
+  <div class="col-md-4" *ngIf="resp.ID">
+    {{resp.Responsibility_Name}}
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <span class="text-danger">* </span>
+    Application
+  </div>
+
+  <div class="col-md-4" *ngIf="!resp.ID">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="resp.Application" />
+  </div>
+  <div class="col-md-4" *ngIf="resp.ID">
+    {{resp.Application}}
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <span class="text-danger">* </span>
+    Ap Group
+  </div>
+
+  <div class="col-md-4">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="resp.Ap_Group" />
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <!--<span class="text-danger">* </span>-->
+    Division
+  </div>
+
+  <div class="col-md-4">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="resp.Division" />
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <span class="text-danger">* </span>
+    Primary Approver
+  </div>
+
+  <div class="col-md-4">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="resp.Primary_Approver" />
+  </div>
+
+  <div class="col-md-2 div_fontsize div_wordbreak" *ngIf="resp.ID && resp.PriorPrimaryApprover">
+    <div>Prior Primary Approver</div>
+    {{resp.PriorPrimaryApprover}}
+  </div>
+
+  <div class="col-md-2 div_fontsize" *ngIf="resp.ID && (resp.PriorPrimaryApproverUpdatedDate |date:'dd/MM/yyyy') != '01/01/0001'">
+    <div>Last Updated Date</div>
+    {{resp.PriorPrimaryApproverUpdatedDate |date}}
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    <span class="text-danger">* </span>
+    Secondary Approver
+  </div>
+
+  <div class="col-md-4">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="resp.Secondary_Approver" />
+
+  </div>
+  <div class="col-md-2 div_fontsize div_wordbreak" *ngIf="resp.ID && resp.PriorSecondaryApprover">
+    <div>Prior Secondary Approver</div>
+    {{resp.PriorSecondaryApprover}}
+  </div>
+
+  <div class="col-md-2 div_fontsize" *ngIf="resp.ID && (resp.PriorSecondaryApproverUpdatedDate |date:'dd/MM/yyyy') != '01/01/0001'">
+    <div>Last Updated Date</div>
+    {{resp.PriorSecondaryApproverUpdatedDate |date}}
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    Final Approver
+  </div>
+
+  <div class="col-md-4">
+    <input type="text" class="form-control" maxlength="100" [(ngModel)]="resp.Final_Approver" />
+  </div>
+  <div class="col-md-2 div_fontsize div_wordbreak" *ngIf="resp.ID && resp.PriorFinalApprover">
+    <div>Prior Final Approver</div>
+    {{resp.PriorFinalApprover}}
+  </div>
+
+  <div class="col-md-2 div_fontsize" *ngIf="resp.ID && (resp.PriorFinalApproverUpdatedDate |date:'dd/MM/yyyy') != '01/01/0001'">
+    <div>Last Updated Date</div>
+    {{resp.PriorFinalApproverUpdatedDate |date}}
+  </div>
+</div>
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    Comment
+  </div>
+
+  <div class="col-md-4">
+    <textarea class="form-control" style="height: 80px;" maxlength="2000" [(ngModel)]="resp.Comment"> </textarea>
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    Sod Active
+  </div>
+
+  <div class="col-md-4">
+    <select class="form-control" [(ngModel)]="resp.Sod_Active">
+      <option value=""></option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+  </div>
+</div>
+
+<div *ngIf="resp.ID">
+  <div class="row form-group">
+    <div class="col-md-4 text-right">
+      Available in Production Y/N?
+    </div>
+
+    <div class="col-md-4">
+      {{resp.Available_in_Production}}
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-4 text-right">
+      Active Y/N?
+    </div>
+
+    <div class="col-md-4">
+      {{resp.Active}}
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-4 text-right">
+      Start Date
+    </div>
+
+    <div class="col-md-4">
+      {{resp.Start_Date|date}}
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-4 text-right">
+      End Date
+    </div>
+
+    <div class="col-md-4">
+      {{resp.End_Date|date}}
+    </div>
+  </div>
+  <div class="row form-group">
+    <div class="col-md-4 text-right">
+      Do Not Use
+    </div>
+    <div class="col-md-4">
+      {{resp.Do_Not_Use}}
+    </div>
+    <!--<div class="col-md-5">
+      <select class="form-control" [(ngModel)]="resp.Do_Not_Use">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>-->
+  </div>
+
+  <div class="row form-group">
+    <div class="col-md-4 text-right">
+      Approvers not listed
+    </div>
+    <div class="col-md-4">
+      {{resp.Approvers_Not_Listed}}
+    </div>
+    <!--<div class="col-md-5">
+      <select class="form-control" [(ngModel)]="resp.Approvers_Not_Listed">
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+    </div>-->
+  </div>
+
+</div>
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+    Default
+  </div>
+  <div class="col-md-4">
+    <!--<input type="checkbox" [(ngModel)]="resp.Default" [checked]="resp.Default == 'Yes'"/>-->
+    <select class="form-control" [(ngModel)]="resp.Default">
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+  </div>
+</div>
+
+<div class="row form-group" *ngIf="errorMsg">
+  <div class="col-md-4 text-right">
+  </div>
+  <div class="col-md-8 text-danger error-box">
+    <b> Below error(s) must be solved before continue: </b>
+    <div [innerHtml]="errorMsg"></div>
+  </div>
+</div>
+
+<div class="row form-group" *ngIf="successMsg">
+  <div class="col-md-4 text-right">
+  </div>
+  <div class="col-md-8 text-success" style="font-weight: bold;" [innerHtml]="successMsg">
+  </div>
+</div>
+
+<div class="row form-group">
+  <div class="col-md-4 text-right">
+  </div>
+
+  <div class="col-md-4 text-center">
+    <input type="button" style="margin: 0px 50px 0px 0px;" value="Submit" class="btn btn-secondary"
+           (click)="updateSingleRespApproverMap()">
+
+    <!-- <input type="button" style="margin: 0px 20px 0px 0px;" value="Close" class="btn btn-secondary"> -->
+
+    <input *ngIf="resp.ID" type="button" style="margin: 0px 20px 0px 0px;" value="Delete" class="btn btn-secondary"
+           data-toggle="modal" data-target="#confirmationModal">
+
+  </div>
+</div>
+
+<hr *ngIf="resp.ID" style="width: 50%;"/>
+
+<div class="row form-group div_footer" *ngIf="resp.ID">
+<div class="col-md-12 text-center" >
+  <span *ngIf="resp.Last_Updated_By">
+    Last Updated By : {{resp.Last_Updated_By}}
+    &nbsp;&nbsp;&nbsp; 
+  </span>
+  <span>
+    Last Updated Date :  {{resp.Last_Updated_Date |date}}
+  </span>
+</div>
+</div>
+<app-confirmation (confirm)="onDelConfirm($event)"></app-confirmation>

@@ -1,0 +1,124 @@
+<br />
+<div class="row">
+  <div class="col-md-8">
+    <h2 style="color:gray;">
+      HRIS Contacts
+    </h2>
+  </div>
+  <div class="col-md-4 text-right">
+    <br />
+    <a href="editcontact/0"><u>Add Contact</u></a>
+
+    <a href="responsibilities" style="margin-left: 20px;"><u>Responsibilities</u></a>
+  </div>
+</div>
+
+
+<hr />
+
+<br />
+
+<div>
+
+  <div style="display: inline-block;">
+    <input type="button" style="vertical-align: top;" value="Import from Excel" class="btn btn-secondary" data-backdrop="static" data-keyboard="false"
+      data-toggle="modal" data-target="#importModal" />
+
+  </div>
+
+
+  <div style="display: inline-block; float:right;" class=" text-right">
+    <select style="width:200px;" class="form-control d-inline-block" [(ngModel)]="contact_filter">
+      <option value=""></option>
+      <option value="Contact">Contact</option>
+      <option value="Org_Name">Org Name</option>
+      <option value="Responsibility_Name">Responsibility Name</option>
+    </select>
+    &nbsp;&nbsp;&nbsp;
+    <input style="width: 200px;" type="text" [(ngModel)]="contact_filter_txt" class="form-control d-inline-block"
+      maxlength="100" />
+    &nbsp;&nbsp;&nbsp;
+    <input type="button" style="vertical-align: top;" value="Search" class="btn btn-secondary" (click)="onSearch()" (keyup)="onEnterKey($event)" />
+    &nbsp;&nbsp;&nbsp;
+    <input type="button" id="exportBtn" style="vertical-align: top;" value="Export to Excel" class="btn btn-secondary" [class.btn-loading]="exportFlag"
+      (click)="onExportToExcel()" />
+
+  </div>
+
+</div>
+<br />
+
+
+<div class="row" *ngIf="contact_count">
+  <div class="col-md-2">
+    Total: {{contact_count}}
+  </div>
+  <div class="col-md-8 text-center" >
+    <pagination-controls (pageChange)="onPageIndexChange($event)"> </pagination-controls>
+  </div>
+</div>
+<div *ngIf="isLoading else ContactGrid" class="text-center">
+  <img src="assets/images/loadingwheel.gif" />
+</div>
+
+<ng-template #ContactGrid>
+  <div style="overflow-x: scroll;">
+    <table class="table resp-table table-striped" id="tblResp" style="font-size: 13px;line-height: 0.3;">
+      <thead>
+        <tr style="white-space: nowrap;" class="tableHeader">
+          <th>RespID</th>
+          <th> Responsibility Name </th>
+          <th> Name/Type </th>
+          <th> OU Org ID </th>
+          <th> Org Name </th>
+          <th> BG ID </th>
+          <th> Business Group </th>
+          <th> Description </th>
+          <th> Diff </th>
+          <th> Contact1 </th>
+          <th> Contact2 </th>
+          <th> Interface User Name </th>
+          <th> File Name </th>
+          <th>Comment</th>
+          <th> Notes </th>
+          <th> Attr2</th>
+          <th> Updated Date </th>
+          <th> Last Updated By </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let cnt of contact_list | paginate: { totalItems:contact_count, itemsPerPage: contact_query.Page_Size, currentPage: contact_query.Page_Index }"
+          style="white-space: nowrap;">
+          <td><a href='editcontact/{{cnt.ID}}'> {{cnt.RespID}}</a></td>
+          <td> {{cnt.Responsibility_Name}}</td>
+          <td>{{cnt.NameOrType}}</td>
+          <td>{{cnt.OU_Org_ID}}</td>
+          <td>{{cnt.Org_Name}}</td>
+          <td>{{cnt.BG_ID}}</td>
+          <td>{{cnt.Business_Group}}</td>
+          <td>
+            {{cnt.Description}}
+          </td>
+          <td>{{cnt.Diff}}</td>
+          <td>{{cnt.Contact1}}</td>
+          <td>{{cnt.Contact2 }}</td>
+          <td>{{cnt.Interface_User_Name}}</td>
+          <td>{{cnt.File_Name}}</td>
+          <td>{{cnt.Comment}}</td>
+          <td>{{cnt.Notes}}</td>
+          <td>{{cnt.Attr2}}</td>
+          <td>{{cnt.Updated_Date | date}}</td>
+          <td>{{cnt.Last_Updated_By}}</td>
+        </tr>
+
+        <tr *ngIf="contact_list && contact_list.length==0" style="white-space: nowrap;">
+          <td colspan="16">
+            No Data Found
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>
+<app-uploads uploadType="Contact"></app-uploads>

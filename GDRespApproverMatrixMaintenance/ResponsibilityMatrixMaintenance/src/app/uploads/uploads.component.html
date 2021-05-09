@@ -1,0 +1,37 @@
+<!-- --------------------------------------------------------------------------------------------- -->
+
+<!-- Modal -->
+<div class="modal fade" #importModal id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="importModalTitle">Import from Excel</h5>
+        <button  style="outline: none;" type="button" class="close" data-dismiss="modal" (click)="onCloseModal()"
+          aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="min-height: 180px;">
+        <p>
+          Please make sure the file should be no more than 5M; and the acceptable file types are: .xlsx and .xls.
+        </p>
+        <input type="file" #fileControl id="fileControl" class="from-control" (change)="OnFileSelected($event.target.files)" />
+        <!-- <div class="col-sm-4 progress" style="padding: 0px; width:400px;">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="importProgress" aria-valuemin="0"
+                  aria-valuemax="100" [style.width.%]="importProgress">
+                  {{importProgress}}% Complete (success)
+                </div>
+              </div> -->
+        <br/><br/>
+         <div class="text-center"> <img *ngIf="loadingFlag" src="assets/images/loadingwheel.gif" style="height:40px;" /></div>
+          <p *ngIf="alertMsg" [innerHtml]="alertMsg"> </p>
+        
+      </div>
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCancel()">Close</button> -->
+        <button type="button" id="importBtn" class="btn btn-primary" (click)="OnImport()">Import</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.first-col-head {
+  visibility:visible;
+  position: absolute;
+  width: 300px;
+  overflow: hidden;
+}
+
+.first-col-row {
+  background: #eeeeee;
+  visibility: visible;
+  position: absolute;
+  width: 300px;
+  overflow: hidden;
+  /*white-space: normal !important;*/
+}
+
+.column-width {
+  width: 300px;
+  min-width: 300px;
+  max-width: 300px;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.highlight-row {
+  background: lightgoldenrodyellow;
+}
+

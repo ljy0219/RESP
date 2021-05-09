@@ -1,0 +1,28 @@
+<div style="height: 100px; background-color:#f1f1f1;">
+
+    <div class="container">
+        <div class="row" style="padding-top: 5px;">
+            <div class="col-md-8">
+                <img src="assets/images/emersonLogoGrayBackground.gif" />
+            </div>
+            <div class="col-md-4 text-right">
+              <span *ngIf="UserName">Welcome {{UserName}}</span>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="container" style="min-height: 600px;">
+    <router-outlet></router-outlet>
+</div>
+
+<footer>
+    <br />
+    <hr />
+    <div class="text-center ">
+        © {{ year | date:'yyyy'}} Emerson Electric Co. All rights reserved.
+    </div>
+    <br />
+    <br />
+</footer>

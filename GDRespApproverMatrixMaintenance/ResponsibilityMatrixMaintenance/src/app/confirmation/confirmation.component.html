@@ -1,0 +1,23 @@
+
+<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="confirmationModalTitle">Confirmation</h5>
+      <button style="outline: none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>
+        Are you sure to delete the current item?
+      </p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onYes()">Yes</button>
+      <button type="button" style="margin-left: 30px;" class="btn btn-primary" data-dismiss="modal" (click)="onNo()">No</button>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ResponsibilityMatrixMaintenance", "http://localhost:52091", "{5D14DB74-F94F-49F6-AAE5-37B2CD87150D}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = "SAK"
+		SccAuxPath = "SAK"
+		SccLocalPath = "SAK"
+		SccProvider = "SAK"
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52091"
+		Debug.AspNetCompiler.PhysicalPath = "..\ResponsibilityMatrixMaintenance\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52091\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52091"
+		Release.AspNetCompiler.PhysicalPath = "..\ResponsibilityMatrixMaintenance\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52091\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "..\ResponsibilityMatrixMaintenance\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D14DB74-F94F-49F6-AAE5-37B2CD87150D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D14DB74-F94F-49F6-AAE5-37B2CD87150D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1346D6E5-60B5-4801-9CB4-F04299258B16}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 1
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs.emersonprocess.com:8080/tfs/emerson%20process%20management
+		SccWebProject0 = true
+		SccProjectUniqueName0 = http://localhost:52091
+		SccProjectName0 = .
+		SccAuxPath0 = http://tfs.emersonprocess.com:8080/tfs/emerson%20process%20management
+		SccLocalPath0 = .
+		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccProjectEnlistmentChoice0 = 2
+	EndGlobalSection
+EndGlobal

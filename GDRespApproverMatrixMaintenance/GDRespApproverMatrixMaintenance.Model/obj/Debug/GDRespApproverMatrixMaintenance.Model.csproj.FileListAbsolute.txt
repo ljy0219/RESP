@@ -1,0 +1,6 @@
+D:\TFS-Projects\GPSTools\GDRespApproverMatrixMaintenance\GDRespApproverMatrixMaintenance.Model\bin\Debug\GDRespApproverMatrixMaintenance.Model.dll
+D:\TFS-Projects\GPSTools\GDRespApproverMatrixMaintenance\GDRespApproverMatrixMaintenance.Model\bin\Debug\GDRespApproverMatrixMaintenance.Model.pdb
+D:\TFS-Projects\GPSTools\GDRespApproverMatrixMaintenance\GDRespApproverMatrixMaintenance.Model\obj\Debug\GDRespApproverMatrixMaintenance.Model.dll
+D:\TFS-Projects\GPSTools\GDRespApproverMatrixMaintenance\GDRespApproverMatrixMaintenance.Model\obj\Debug\GDRespApproverMatrixMaintenance.Model.pdb
+D:\TFS-Projects\GPSTools\GDRespApproverMatrixMaintenance\GDRespApproverMatrixMaintenance.Model\obj\Debug\GDRespApproverMatrixMaintenance.Model.csprojAssemblyReference.cache
+D:\TFS-Projects\GPSTools\GDRespApproverMatrixMaintenance\GDRespApproverMatrixMaintenance.Model\obj\Debug\GDRespApproverMatrixMaintenance.Model.csproj.CoreCompileInputs.cache
